@@ -7,14 +7,12 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		compile('org.springframework.boot:spring-boot-starter-data-jpa')
-		compile('mysql:mysql-connector-java')
 	}
 }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
+apply plugin: "org.springframework.boot"
 
 jar {
 	baseName = 'cheese-mvc'
@@ -32,6 +30,8 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('mysql:mysql-connector-java')
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
 	compile('mysql:mysql-connector-java')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
