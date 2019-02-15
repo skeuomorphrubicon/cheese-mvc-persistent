@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${title}">Default Title</h1>
+
+<p>
+
+<form th:object="${menu}" action="add" method="post">
+
+    <div class="form-group">
+    <label th:for="name">Name</label>
+    <input class="form-control" th:field="*{name}" />
+    <span class="errors" th:errors="*{name}"></span>
+    </div>
+
+    <input type="submit" value="Add Menu" />
+</form>
+
+</body>
+</html>

@@ -24,6 +24,7 @@ public class CheeseController {
 
     @Autowired
     private CheeseDao cheeseDao;
+    private CategoryDao categoryDao;
 
     // Request path: /cheese
     @RequestMapping(value = "")
@@ -39,7 +40,7 @@ public class CheeseController {
     public String displayAddCheeseForm(Model model) {
         model.addAttribute("title", "Add Cheese");
         model.addAttribute(new Cheese());
-        model.addAttribute("categories", CategoryDao.findAll());
+        model.addAttribute("categories", categoryDao.findAll());
         return "cheese/add";
     }
 
@@ -52,7 +53,7 @@ public class CheeseController {
             return "cheese/add";
         }
 
-        Category cat = CategoryDao.findOne(categoryId);
+        Category cat = categoryDao.findOne(categoryId);
         newCheese.setCategory(cat);
         cheeseDao.save(newCheese);
         return "redirect:";

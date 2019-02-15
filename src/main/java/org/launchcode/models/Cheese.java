@@ -3,6 +3,7 @@ package org.launchcode.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -15,7 +16,7 @@ public class Cheese {
     private int id;
 
     @NotNull
-    @Size(min=3, max=15)
+    @Size(min=3, max=15, message = "Name cannot be empty")
     private String name;
 
     @NotNull
@@ -24,6 +25,9 @@ public class Cheese {
 
     @ManyToOne
     private Category category;
+
+    @ManyToMany(mappedBy = "cheeses")
+    private List<Menu> menus;
 
     public Cheese(String name, String description) {
         this.name = name;
